@@ -14,11 +14,16 @@ provider "aws" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-0beaa649c482330f7"
+  ami           = "ami-0283a57753b18025b"
   instance_type = "t2.micro"
-  key_name = "linux-Ohio"
-
+  key_name      = "linux-Ohio"
+  # user_data     = <<-EOF
+  #                #!/bin/bash
+  #                cd /home/ubuntu
+  #                echo "<h1>Feito com Terraform</h1>" > index.html
+  #                nohup busybox httpd -f -p 8080 &
+  #                EOF
   tags = {
-    Name = "InstanceUseTerraform"
+    Name = "InstanceUseTerraform2"
   }
 }
